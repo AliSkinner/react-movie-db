@@ -24,7 +24,7 @@ export default {
 
   getDetails: (movieID) => {
     let encodedID = encodeURIComponent(movieID);
-    let requestURL = DETAILS_URL.peplace('<MOVIE_ID>', encodedID);
+    let requestURL = DETAILS_URL.replace('<MOVIE_ID>', encodedID);
 
     return axios.get(requestURL).then((res) => {
       if (!res.status === 200) {
