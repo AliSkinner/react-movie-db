@@ -47,14 +47,36 @@ class MovieDetail extends React.Component {
   }
 
   render () {
+    let {isLoading, errorMessage, movie} = this.state;
+
+    let renderMovie = () => {
+      if (isLoading) {
+        return (
+          <p className="text-center loading-message">Loading Movie</p>
+        );
+      } else if (movie) {
+        return (
+          <Movie {...movie}/>
+        );
+      }
+    };
+
+    let renderErrorMesage = () => {
+      if (typeof errorMessage === 'string') {
+        return (
+          <h3 className="text-center error-message">{errorMessage}</h3>
+        );
+      }
+    };
+
     return (
       <div>
-        <div>MovieDetail</div>
-        <Movie/>
+        {renderMovie()}
+        {renderErrorMesage()}
       </div>
     );
   }
 
-};
+}
 
 export default MovieDetail;
