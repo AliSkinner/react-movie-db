@@ -5,7 +5,6 @@ const Main = (props) => {
     <div>
       <div className='container'>
         {props.children}
-        hi
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SearchForm from 'SearchForm';
+
 
 class MovieSearch extends React.Component {
 
@@ -9,7 +11,10 @@ class MovieSearch extends React.Component {
 
   render () {
     return (
-      <div>MovieSearch</div>
+      <div>
+        <div>MovieSearch</div>
+        <SearchForm/>
+      </div>
     );
   }
 
