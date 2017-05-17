@@ -20,24 +20,24 @@ yarn test
 ## Tech used
 
 * Front-end:
- * React
- * React Router
- * SCSS
- * Foundation
- * React
+  * React
+  * React Router
+  * SCSS
+  * Foundation
+  * React
 
 
 * Testing:
- * Mocha
- * Karma
- * Expect
+  * Mocha
+  * Karma
+  * Expect
 
 
 * Tools:
- * Webpack
- * Babel
- * ESlint
+  * Webpack
+  * Babel
+  * ESlint
 
 
  * Server:
-  * Express
+   * Express
