@@ -7,13 +7,18 @@ class MovieSearch extends React.Component {
 
   constructor (props) {
     super(props);
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  handleSearch (searchTerm) {
+    console.log(searchTerm);
   }
 
   render () {
     return (
       <div>
         <div>MovieSearch</div>
-        <SearchForm/>
+        <SearchForm onSearch={this.handleSearch}/>
       </div>
     );
   }
