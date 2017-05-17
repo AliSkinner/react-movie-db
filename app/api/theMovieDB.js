@@ -18,8 +18,23 @@ export default {
         return res.data.results;
       }
     }, (e) => {
-      throw new Error('Unable to fetch search results');
+      throw new Error('Unable to fetch search results.');
     });
-  }
+  },
+
+  getDetails: (movieID) => {
+    let encodedID = encodeURIComponent(movieID);
+    let requestURL = DETAILS_URL.peplace('<MOVIE_ID>', encodedID);
+
+    return axios.get(requestURL).then((res) => {
+      if (!res.status === 200) {
+        throw new Error(res.statusText);
+      } else {
+        return res.data;
+      }
+    }, (e) => {
+      throw new Error('Unable to fetch requested movie.');
+    });
+  },
 
 };
