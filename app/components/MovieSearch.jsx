@@ -60,6 +60,10 @@ class MovieSearch extends React.Component {
             );
           })
         );
+      } else if (movies && movies.length === 0) {
+        return (
+          <p className="text-center no-results">No Results</p>
+        );
       }
     };
 

@@ -26,4 +26,12 @@ describe('MovieSearch', () => {
     expect($el.find('.loading-message').length).toEqual(1);
   });
 
+  it('should render no results message if no results', () => {
+    let movies = [];
+    let searchForm = TestUtils.renderIntoDocument(<MovieSearch />);
+    searchForm.setState({movies});
+    let $el = $(ReactDOM.findDOMNode(searchForm));
+    expect($el.find('.no-results').length).toEqual(1);
+  });
+
 });
