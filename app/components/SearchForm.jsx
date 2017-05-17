@@ -20,7 +20,7 @@ class SearchForm extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="search-form">
         <form ref='form' onSubmit={this.onFormSubmit}>
           <input type='search' ref='searchTerm' placeholder='Search from a movie...'/>
           <button className='button expanded hollow'>Search</button>

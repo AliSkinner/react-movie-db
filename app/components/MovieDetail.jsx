@@ -70,7 +70,7 @@ class MovieDetail extends React.Component {
     };
 
     return (
-      <div>
+      <div className="movie-detail">
         {renderMovie()}
         {renderErrorMesage()}
       </div>

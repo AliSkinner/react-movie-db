@@ -6,3 +6,8 @@
 @include foundation-everything;
 
 // componenets
+@import "components/main";
+@import "components/movie-detail";
+@import "components/movie-search";
+@import "components/search-form";
+@import "components/search-result";

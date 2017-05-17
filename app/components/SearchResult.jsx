@@ -8,19 +8,15 @@ const SearchResult = ({id, posterPath, rating, title}) => {
   let imgPath = posterPath ? `${IMAGE_PATH}${posterPath}` : 'https://placeholdit.imgix.net/~text?txtsize=33&txt=no%20image&w=200&h=200';
 
   return (
-    <div className="search-result">
-      <div className="media-object">
-        <div className="media-object-section">
-          <div className="thumbnail">
-            <img src={imgPath}/>
-          </div>
-        </div>
-        <div className="media-object-section">
+    <article className="search-result text-center">
+      <div class="card">
+        <img src={imgPath} />
+        <div class="card-section">
           <h4>{title}</h4>
-          <Link to={`/movie/${id}`}>More Info</Link>
+          <p><Link to={`/movie/${id}`}>More Info</Link></p>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

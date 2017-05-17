@@ -81,11 +81,13 @@ class MovieSearch extends React.Component {
     };
 
     return (
-      <div>
-        <div>MovieSearch</div>
+      <div className="movie-search">
+        <h1 className="text-center">The Movie DB</h1>
         <SearchForm onSearch={this.handleSearch}/>
-        {renderMovies()}
-        {renderErrorMessage()}
+        <section className="search-results">
+          {renderMovies()}
+          {renderErrorMessage()}
+        </section>
       </div>
     );
   }
