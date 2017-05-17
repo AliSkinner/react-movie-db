@@ -29,7 +29,6 @@ class MovieDetail extends React.Component {
 
     movieAPI.getDetails(movieID)
       .then((movie) => {
-        console.log(movie)
         that.setState({
           movie,
           isLoading: false

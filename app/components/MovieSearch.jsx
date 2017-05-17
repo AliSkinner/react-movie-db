@@ -33,7 +33,6 @@ class MovieSearch extends React.Component {
           isLoading: false,
           movies
         });
-        console.log(that.state);
       }, (e) => {
         that.setState({
           errorMessage: e.message,
@@ -92,6 +91,6 @@ class MovieSearch extends React.Component {
     );
   }
 
-};
+}
 
 export default MovieSearch;

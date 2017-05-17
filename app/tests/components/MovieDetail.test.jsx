@@ -21,7 +21,7 @@ describe('MovieDetail', () => {
       posterPath: '/some-url.jpg',
       rating: 10,
     };
-    let movieParams = {movieID: 1}
+    let movieParams = {movieID: 1};
     let movieDetail = TestUtils.renderIntoDocument(<MovieDetail params={movieParams} />);
     let $el = $(ReactDOM.findDOMNode(movieDetail));
 
@@ -56,7 +56,7 @@ describe('MovieDetail', () => {
       genre: 'Thriller',
       posterPath: '/some/other/url.jpg',
       rating: 10,
-    }]
+    }];
 
     let searchForm = TestUtils.renderIntoDocument(<MovieSearch />);
     searchForm.setState({movies: movies});

@@ -23,7 +23,7 @@ describe('Movie', () => {
       rating: 10,
     };
     let movieComponent = TestUtils.renderIntoDocument(<Movie {...movie}/>);
-    expect(Movie).toExist();
+    expect(movieComponent).toExist();
   });
 
 });
