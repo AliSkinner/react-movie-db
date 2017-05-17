@@ -12,18 +12,25 @@ class MovieSearch extends React.Component {
     super(props);
     this.handleSearch = this.handleSearch.bind(this);
     this.state = {
-      movies: undefined
+      isLoading: false,
+      movies: undefined,
     };
   }
 
   handleSearch (searchTerm) {
     let that = this;
 
-    this.setState({movies: undefined});
+    this.setState({
+      isLoading: true,
+      movies: undefined
+    });
 
     movieAPI.search(searchTerm)
       .then((movies) => {
-        that.setState({movies});
+        that.setState({
+          isLoading: false,
+          movies
+        });
         console.log(that.state);
       }, (e) => {
         console.log(e);
@@ -32,10 +39,14 @@ class MovieSearch extends React.Component {
   }
 
   render () {
-    let{movies} = this.state;
+    let{isLoading, movies} = this.state;
 
     let renderMovies = () => {
-      if (movies && movies.length > 0) {
+      if (isLoading) {
+        return (
+          <p className="text-center loading-message">Loading Movies</p>
+        );
+      } else if (movies && movies.length > 0) {
         return (
           movies.map((movie) => {
             return (
