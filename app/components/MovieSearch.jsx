@@ -12,6 +12,7 @@ class MovieSearch extends React.Component {
     super(props);
     this.handleSearch = this.handleSearch.bind(this);
     this.state = {
+      errorMessage: undefined,
       isLoading: false,
       movies: undefined,
     };
@@ -21,6 +22,7 @@ class MovieSearch extends React.Component {
     let that = this;
 
     this.setState({
+      errorMessage: undefined,
       isLoading: true,
       movies: undefined
     });
@@ -33,13 +35,16 @@ class MovieSearch extends React.Component {
         });
         console.log(that.state);
       }, (e) => {
-        console.log(e);
+        that.setState({
+          errorMessage: e.message,
+          isLoading: false,
+        });
       });
 
   }
 
   render () {
-    let{isLoading, movies} = this.state;
+    let{errorMessage, isLoading, movies} = this.state;
 
     let renderMovies = () => {
       if (isLoading) {
@@ -67,11 +72,20 @@ class MovieSearch extends React.Component {
       }
     };
 
+    let renderErrorMessage = () => {
+      if (typeof errorMessage === 'string') {
+        return (
+          <p className="text-center error-message">{errorMessage}</p>
+        );
+      }
+    };
+
     return (
       <div>
         <div>MovieSearch</div>
         <SearchForm onSearch={this.handleSearch}/>
         {renderMovies()}
+        {renderErrorMessage()}
       </div>
     );
   }

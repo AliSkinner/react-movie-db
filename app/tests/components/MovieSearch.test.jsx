@@ -34,4 +34,12 @@ describe('MovieSearch', () => {
     expect($el.find('.no-results').length).toEqual(1);
   });
 
+  it('should render error message if errorMessage exists', () => {
+    let errorMessage = 'Error message!';
+    let searchForm = TestUtils.renderIntoDocument(<MovieSearch />);
+    searchForm.setState({errorMessage});
+    let $el = $(ReactDOM.findDOMNode(searchForm));
+    expect($el.find('.error-message').length).toEqual(1);
+  });
+
 });
