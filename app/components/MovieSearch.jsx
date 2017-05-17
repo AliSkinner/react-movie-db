@@ -3,6 +3,7 @@ import React from 'react';
 import movieAPI from 'theMovieDB';
 
 import SearchForm from 'SearchForm';
+import SearchResult from 'SearchResult';
 
 
 class MovieSearch extends React.Component {
@@ -13,7 +14,6 @@ class MovieSearch extends React.Component {
     this.state = {
       movies: undefined
     };
-
   }
 
   handleSearch (searchTerm) {
@@ -32,10 +32,31 @@ class MovieSearch extends React.Component {
   }
 
   render () {
+    let{movies} = this.state;
+
+    let renderMovies = () => {
+      if (movies && movies.length > 0) {
+        return (
+          movies.map((movie) => {
+            return (
+              <SearchResult
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              genre={movie.release_date}
+              posterPath={movie.poster_path}
+              rating={movie.vote_average} />
+            );
+          })
+        );
+      }
+    };
+
     return (
       <div>
         <div>MovieSearch</div>
         <SearchForm onSearch={this.handleSearch}/>
+        {renderMovies()}
       </div>
     );
   }
